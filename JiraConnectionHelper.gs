@@ -1,4 +1,6 @@
-function() {
+getJiraConnectionHelper();
+
+function getJiraConnectionHelper() {
   return JiraConnectionHelper;
 }
 
