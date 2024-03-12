@@ -1,3 +1,7 @@
+function() {
+  return JiraConnectionHelper;
+}
+
 class JiraConnectionHelper {
   static getConnectionSettings(apiKey, authType, domain, userName) {
   
