@@ -1,5 +1,33 @@
 (() => {
   class JiraConnectionHelper {
+    static getQueryString(jql,page) {
+      var params = {};
+      params["expand"] = "changelog";
+      params["fields"] = "status,issuetype";
+      params["maxResults"] = "100";
+    
+      if (jql) {
+        params["jql"] = jql;
+      }
+    
+      if (page) {
+        params["startAt"] = page*100;
+      }
+    
+      var _q = Object.keys(params).map((key) => {
+        return `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
+      }).join("&");
+    
+      return _q;
+    }
+    
+    static getURL(domain) {
+      if (!domain) {
+        //throw error
+      }
+      return `${domain.toString().trim()}/rest/api/latest/search`;
+    }
+
     static getConnectionSettings(apiKey, authType, domain, userName) {
     
       if (!domain) {
