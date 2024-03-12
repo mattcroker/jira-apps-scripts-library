@@ -1,4 +1,4 @@
-() => {
+(() => {
   class JiraConnectionHelper {
     static getConnectionSettings(apiKey, authType, domain, userName) {
     
@@ -40,4 +40,4 @@ return {
   JiraConnectionHelper : JiraConnectionHelper
 }
 
-}()
+})()
